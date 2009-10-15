@@ -1,11 +1,6 @@
-css_framework = ask("What CSS Framework do you want to use with Compass? (default: '960')")
-css_framework = "960" if css_framework.blank?
-
-sass_dir = ask("Where would you like to keep your sass files within your project? (default: 'app/sass')")
-sass_dir = "app/sass" if sass_dir.blank?
-
-css_dir = ask("Where would you like Compass to store your compiled css files? (default: 'public/stylesheets/')")
-css_dir = "public/stylesheets/" if css_dir.blank?
+css_framework = "960"
+sass_dir = "app/sass"
+css_dir = "public/stylesheets"
 
 gem "haml", :lib => "haml", :version => ">=2.2.0"
 gem "chriseppstein-compass", :source => "http://gems.github.com/", :lib => "compass"
@@ -13,12 +8,10 @@ gem "chriseppstein-compass", :source => "http://gems.github.com/", :lib => "comp
 rake "gems:install GEM=haml", :sudo => true
 rake "gems:install GEM=chriseppstein-compass", :sudo => true
 
-if css_framework =~ /960/
-  gem "chriseppstein-compass-960-plugin", :source => "http://gems.github.com", :lib => "ninesixty"
-  rake "gems:install GEM=chriseppstein-compass-960-plugin", :sudo => true
-  css_framework = "960"
-  plugin_require = "-r ninesixty"
-end
+gem "chriseppstein-compass-960-plugin", :source => "http://gems.github.com", :lib => "ninesixty"
+rake "gems:install GEM=chriseppstein-compass-960-plugin", :sudo => true
+css_framework = "960"
+plugin_require = "-r ninesixty"
 
 compass_command = "compass --rails -f #{css_framework} . --css-dir=#{css_dir} --sass-dir=#{sass_dir} "
 compass_command << plugin_require if plugin_require
