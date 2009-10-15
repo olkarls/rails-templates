@@ -14,7 +14,7 @@ gem 'validatious-on-rails', :source => 'http://gemcutter.org'
 gem 'chriseppstein-compass', :source => 'http://gems.github.com'
 gem "chriseppstein-compass-960-plugin", :source => 'http://gems.github.com'
 
-rake "gems:install", :sudo => true
+#rake "gems:install", :sudo => true
 
 plugin "validation_reflection", :git => "git://github.com/redinger/validation_reflection.git"
 plugin "custom-err-msg", :git => "git://github.com/gumayunov/custom-err-msg.git"
