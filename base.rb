@@ -8,23 +8,33 @@ run "echo TODO:Write documentation > README"
 
 gem 'haml'
 gem 'searchlogic'
-gem 'justinfrench-formtastic', :lib => 'formtastic', :source => 'http://gems.github.com'
 gem 'mislav-will_paginate', :version => '~> 2.3.11', :lib => 'will_paginate', :source => 'http://gems.github.com'
+gem 'justinfrench-formtastic', :lib => 'formtastic', :source => 'http://gems.github.com'
+gem 'validatious-on-rails', :source => 'http://gemcutter.org'
+gem 'chriseppstein-compass'
+
+rake "gems:install", :sudo => true
 
 plugin "validation_reflection", :git => "git://github.com/redinger/validation_reflection.git"
 plugin "custom-err-msg", :git => "git://github.com/gumayunov/custom-err-msg.git"
+plugin "chriseppstein-compass-960-plugin"
+
+rake "script/generate formtastic"
+rake "script/generate validatious"
+
+run "compass -r ninesixty -f 960 ."
 
 git :init
 
 file ".gitignore", <<-END
-  .DS_Store
-  log/*.log
-  tmp/**/*
-  config.database.yml
-  db/*.sqlite3
+.DS_Store
+log/*.log
+tmp/**/*
+config.database.yml
+db/*.sqlite3
 END
 
-run "touch tmp/.gitignore log.gitignore vendor/.gitignore"
+run "touch tmp/.gitignore log/.gitignore vendor/.gitignore"
 run "cp config/database.yml config/ example_database.yml"
 
 git :add => ".", :commit => "-m 'Initial commit'" 
