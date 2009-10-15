@@ -11,7 +11,7 @@ gem 'searchlogic'
 gem 'mislav-will_paginate', :version => '~> 2.3.11', :lib => 'will_paginate', :source => 'http://gems.github.com'
 gem 'justinfrench-formtastic', :lib => 'formtastic', :source => 'http://gems.github.com'
 gem 'validatious-on-rails', :source => 'http://gemcutter.org'
-gem 'chriseppstein-compass'
+gem 'chriseppstein-compass', :source => 'http://gems.github.com'
 
 rake "gems:install", :sudo => true
 
