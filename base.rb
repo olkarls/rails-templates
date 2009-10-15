@@ -4,7 +4,7 @@ run "rm 'public/javascripts/dragdrop.js'"
 run "rm 'public/javascripts/effects.js'"
 run "rm 'public/javascripts/prototype.js'"
 
-run "echo TODO:Write documentation > README"
+run "echo TODO: Write documentation > README"
 
 gem 'haml'
 gem 'searchlogic'
@@ -22,7 +22,7 @@ plugin "custom-err-msg", :git => "git://github.com/gumayunov/custom-err-msg.git"
 generate :formtastic
 generate :validatious
 
-run "compass -r ninesixty -f 960 ."
+#run "compass -r ninesixty -f 960 ."
 
 git :init
 
