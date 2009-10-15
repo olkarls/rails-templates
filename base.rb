@@ -17,7 +17,7 @@ rake "gems:install", :sudo => true
 
 plugin "validation_reflection", :git => "git://github.com/redinger/validation_reflection.git"
 plugin "custom-err-msg", :git => "git://github.com/gumayunov/custom-err-msg.git"
-plugin "chriseppstein-compass-960-plugin"
+plugin "chriseppstein-compass-960-plugin", :git => "git://github.com/chriseppstein/compass.git"
 
 rake "script/generate formtastic"
 rake "script/generate validatious"
