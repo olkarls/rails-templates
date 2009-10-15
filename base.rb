@@ -12,6 +12,9 @@ gem "chriseppstein-compass-960-plugin", :source => "http://gems.github.com", :li
 rake "gems:install GEM=chriseppstein-compass-960-plugin", :sudo => true
 plugin_require = "-r ninesixty"
 
+gem 'redinger-validation_reflection', :lib => 'validation_reflection', :source => 'http://gems.github.com'
+rake "gems:install GEM=redinger-validation_reflection", :sudo => true
+
 compass_command = "compass --rails -f #{css_framework} . --css-dir=#{css_dir} --sass-dir=#{sass_dir} "
 compass_command << plugin_require if plugin_require
 
@@ -34,7 +37,6 @@ run "echo TODO: Write documentation > README"
 gem 'searchlogic'
 gem 'mislav-will_paginate', :version => '~> 2.3.11', :lib => 'will_paginate', :source => 'http://gems.github.com'
 gem 'justinfrench-formtastic', :lib => 'formtastic', :source => 'http://gems.github.com'
-gem 'redinger-validation_reflection'
 gem 'validatious-on-rails', :source => 'http://gemcutter.org'
 
 rake "gems:install", :sudo => true
@@ -59,4 +61,4 @@ END
 run "touch tmp/.gitignore log/.gitignore vendor/.gitignore"
 run "cp config/database.yml config/ example_database.yml"
 
-git :add => ".", :commit => "-m 'Initial commit'" 
+git :add => ".", :commit => "-m 'Initial commit'"
