@@ -19,8 +19,8 @@ plugin "validation_reflection", :git => "git://github.com/redinger/validation_re
 plugin "custom-err-msg", :git => "git://github.com/gumayunov/custom-err-msg.git"
 plugin "chriseppstein-compass-960-plugin", :git => "git://github.com/chriseppstein/compass.git"
 
-rake "script/generate formtastic"
-rake "script/generate validatious"
+generate :formtastic
+generate :validatious
 
 run "compass -r ninesixty -f 960 ."
 
