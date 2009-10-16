@@ -44,6 +44,7 @@ rake "gems:install", :sudo => true
 plugin "custom-err-msg",        :git => "git://github.com/gumayunov/custom-err-msg.git"
 plugin "has_permalink",         :git => "git://github.com/olkarls/has_permalink.git"
 plugin "generic_controllers",   :git => "git://github.com/olkarls/generic_controllers.git"
+plugin "authentication",        :git => "git://github.com/olkarls/authentication.git"
 
 generate :formtastic
 generate :validatious
@@ -60,5 +61,7 @@ END
 
 run "touch tmp/.gitignore log/.gitignore vendor/.gitignore"
 run "cp config/database.yml config/ example_database.yml"
+
+rake "authentication:install"
 
 git :add => ".", :commit => "-m 'Initial commit'"
