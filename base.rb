@@ -34,9 +34,10 @@ run "rm 'public/javascripts/prototype.js'"
 
 run "echo TODO: Write documentation > README"
 
-gem 'searchlogic'
+#gem 'searchlogic'
+gem 'authlogic'
 gem 'mislav-will_paginate', :version => '~> 2.3.11', :lib => 'will_paginate', :source => 'http://gems.github.com'
-gem 'justinfrench-formtastic', :lib => 'formtastic', :source => 'http://gems.github.com'
+#gem 'justinfrench-formtastic', :lib => 'formtastic', :source => 'http://gems.github.com'
 gem 'validatious-on-rails', :source => 'http://gemcutter.org'
 
 rake "gems:install", :sudo => true
