@@ -44,11 +44,12 @@ rake "gems:install", :sudo => true
 
 plugin "custom-err-msg",        :git => "git://github.com/gumayunov/custom-err-msg.git"
 plugin "has_permalink",         :git => "git://github.com/olkarls/has_permalink.git"
-plugin "generic_controllers",   :git => "git://github.com/olkarls/generic_controllers.git"
-plugin "authentication",        :git => "git://github.com/olkarls/authentication.git"
+#plugin "generic_controllers",   :git => "git://github.com/olkarls/generic_controllers.git"
+#plugin "authentication",        :git => "git://github.com/olkarls/authentication.git"
+#plugin "semantic_form",         :git => "git://github.com/olkarls/semantic_form_builder.git"
 
-generate :formtastic
-generate :validatious
+#generate :formtastic
+#generate :validatious
 
 git :init
 
