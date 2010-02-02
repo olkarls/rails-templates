@@ -23,7 +23,7 @@ file 'vendor/plugins/compass/init.rb', <<-CODE
 require 'compass'
 CODE
 
-run "haml --rails ."
+#run "haml --rails ."
 run compass_command
 
 run "rm 'public/index.html'"
@@ -32,24 +32,20 @@ run "rm 'public/javascripts/dragdrop.js'"
 run "rm 'public/javascripts/effects.js'"
 run "rm 'public/javascripts/prototype.js'"
 
+run "cd public/javascripts; curl -O http://code.jquery.com/jquery-1.4.1.min.js"
+
 run "echo TODO: Write documentation > README"
 
-#gem 'searchlogic'
-gem 'authlogic'
-gem 'mislav-will_paginate', :version => '~> 2.3.11', :lib => 'will_paginate', :source => 'http://gems.github.com'
-#gem 'justinfrench-formtastic', :lib => 'formtastic', :source => 'http://gems.github.com'
+gem 'mislav-will_paginate', :version => '~> 2.3.11', :lib => 'will_paginate', :source => 'http://gemcutter.org'
 gem 'validatious-on-rails', :source => 'http://gemcutter.org'
 
 rake "gems:install", :sudo => true
 
 plugin "custom-err-msg",        :git => "git://github.com/gumayunov/custom-err-msg.git"
 plugin "has_permalink",         :git => "git://github.com/olkarls/has_permalink.git"
-#plugin "generic_controllers",   :git => "git://github.com/olkarls/generic_controllers.git"
-#plugin "authentication",        :git => "git://github.com/olkarls/authentication.git"
-#plugin "semantic_form",         :git => "git://github.com/olkarls/semantic_form_builder.git"
-
-#generate :formtastic
-#generate :validatious
+plugin "generic_controllers",   :git => "git://github.com/olkarls/generic_controllers.git"
+plugin "authentication",        :git => "git://github.com/olkarls/authentication.git"
+plugin "semantic_form",         :git => "git://github.com/olkarls/semantic_form_builder.git"
 
 git :init
 
@@ -57,13 +53,11 @@ file ".gitignore", <<-END
 .DS_Store
 log/*.log
 tmp/**/*
-config.database.yml
 db/*.sqlite3
 END
 
 run "touch tmp/.gitignore log/.gitignore vendor/.gitignore"
-run "cp config/database.yml config/ example_database.yml"
+runt "capify ."
+#rake "authentication:install"
 
-rake "authentication:install"
-
-git :add => ".", :commit => "-m 'Initial commit'"
+#git :add => ".", :commit => "-m 'Initial commit'"
