@@ -57,7 +57,7 @@ db/*.sqlite3
 END
 
 run "touch tmp/.gitignore log/.gitignore vendor/.gitignore"
-runt "capify ."
+run "capify ."
 #rake "authentication:install"
 
 #git :add => ".", :commit => "-m 'Initial commit'"
